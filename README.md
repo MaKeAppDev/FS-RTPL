@@ -1,4 +1,4 @@
-# Formelsammlung Template
+# Real Time Programming Languages
 ## Formelsammlung für Latex4ei
 **Required custom Package on GitHub:** [scientific.sty](https://github.com/latex4ei/latex4ei-packages)
 
