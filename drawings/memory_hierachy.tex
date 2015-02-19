@@ -1,0 +1,41 @@
+\begin{tikzpicture}[scale=.5,every node/.style={scale=1}]
+
+	\coordinate (L) at (-4,0);
+	\coordinate (R) at (4,0);
+	\coordinate (O) at (0,6);
+	\coordinate (L02) at ($ (L)!.2!(O) $);
+	\coordinate (R02) at ($ (R)!.2!(O) $);
+	\coordinate (L04) at ($ (L)!.4!(O) $);
+	\coordinate (R04) at ($ (R)!.4!(O) $);
+	\coordinate (L06) at ($ (L)!.6!(O) $);
+	\coordinate (R06) at ($ (R)!.6!(O) $);
+	\coordinate (L08) at ($ (L)!.8!(O) $);
+	\coordinate (R08) at ($ (R)!.8!(O) $);
+
+	\draw (L) -- (R) -- (O) -- cycle;
+	\filldraw[fill=red!80!white, draw=black] (L) -- (R) -- (R02) -- (L02) -- cycle;
+	\draw ($(L)!.5!(R)$) -- ($(L02)!.5!(R02)$);
+	\node(C02) [fit={(L) (R) (R02) (L02)}] {};
+	\draw(C02)++(-1.5,0) node {Tape};
+	\draw(C02)++(1.5,0) node {Optical Disk};
+	\draw(C02)++(5.5,0) node {$\sim$ GB - TB};
+	\draw(C02)++(0,-1) node {Slower, Bigger};
+
+	\filldraw[fill=red!60!white, draw=black] (L02) -- (R02) -- (R04) -- (L04) -- cycle;
+	\node(C04) [fit={(L02) (R02) (R04) (L04)}] {Magnetic Disk};
+	\draw (C04)++(4.5,0) node {$\sim$ GB - TB};
+
+	\filldraw[fill=red!40!white, draw=black] (L04) -- (R04) -- (R06) -- (L06) -- cycle;
+	\node(C06) [fit={(L04) (R04) (R06) (L06)}] {Main Memory};
+	\draw (C06)++(3.5,0) node {$\sim$ MB - GB};
+
+	\filldraw[fill=red!20!white, draw=black] (L06) -- (R06) -- (R08) -- (L08) -- cycle;
+	\node(C06) [fit={(L06) (R06) (R08) (L08)}] {Cache};
+	\draw (C06)++(2.5,0) node {$\sim$ MB};
+
+	\filldraw[fill=red!5!white, draw=black] (L08) -- (R08) -- (O) -- cycle;
+	\node(C08) at (0,5.1) {Reg.};
+	\draw (C08)++(1.5,0) node {$\sim$ MB};
+	\draw (C08)++(0,1.2) node {Smaller, Faster};
+
+\end{tikzpicture}

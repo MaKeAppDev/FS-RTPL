@@ -1,4 +1,4 @@
- cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
 project(eem NONE)
 include(UseLATEX)
@@ -9,11 +9,17 @@ add_custom_target(
 		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 
+set(DRAWINGS
+    drawings/memory_hierachy.tex
+    drawings/cache.tex
+)
+
 set(IMAGES
 	img/Logo.pdf
 )
 
 add_latex_document(formelsammlung.tex DEFAULT_PDF
+    INPUTS ${DRAWINGS}
 	IMAGES ${IMAGES}
 	DEPENDS writegitid
 )

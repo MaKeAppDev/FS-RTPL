@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=.5,every node/.style={scale=1},node distance=0cm]
+
+\tikzstyle{cache}=[rectangle,draw,thick,minimum width=2cm,minimum height=0.5cm];
+
+\node(INDEX) [cache] {$WI$};
+\node [below= of INDEX] {INDEX field};
+\node(OFFSET) [cache, right= of INDEX] {$WO$};
+\node [below= of OFFSET] {OFFSET field};
+\node(TAG) [cache, left= of INDEX] {$AS - WI - WO$};
+\node [below= of TAG] {TAG field};
+
+\end{tikzpicture}
