@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(eem NONE)
+project(FS NONE)
 include(UseLATEX)
 
 add_custom_target(
@@ -18,7 +18,7 @@ set(IMAGES
 	img/Logo.pdf
 )
 
-add_latex_document(formelsammlung.tex DEFAULT_PDF
+add_latex_document(formelsammlung.tex FORCE_PDF
     INPUTS ${DRAWINGS}
 	IMAGES ${IMAGES}
 	DEPENDS writegitid
