@@ -1,24 +1,19 @@
 % Formelsammlung Real Time Programming Languages
 %
 % Geschrieben im WS 2014/2015 an der TU München
-% von Markus Hofbauer und Kevin Meyer für LaTeX4EI (latex4ei.de)
+% von Markus Hofbauer und Kevin Meyer für LaTeX4EI
+% based on template from www.latex4ei.de
 % Kontakt: latex@kevin-meyer.de oder via Kontaktformular auf http://latex4ei.de
 % Aktuelle Versionen auf https://makeappdev.github.io/TUM-Projekte/
 
 % Dokumenteinstellungen
 % ======================================================================
-
-
-% Dokumentklasse (Schriftgröße 6, DIN A4, Artikel)
-\documentclass[fs, footer]{latex4ei}
+\documentclass[german]{latex4ei/latex4ei_sheet}
 
 \usepackage[european]{circuitikz}
 \usepackage{tabularx}
 \usepackage{multirow}
 \usetikzlibrary{arrows, calc, intersections, shapes, fit, positioning}
-\usepackage{hyperref}
-\urlstyle{sf}
-\usepackage{listings}
 
 % tabularx definition
 \newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -60,19 +55,34 @@ breakatwhitespace=false,					% sets if automatic breaks should only happen at wh
 escapeinside={\%*}{*)}					% if you want to add a comment within your code
 }
 
-% Eigener Inhalt für Center-Teil des Footers
-\fancyfoot[C]{von Markus Hofbauer und Kevin Meyer - Kontakt: \href{mailto:latex@kevin-meyer.de}{\textit{latex@kevin-meyer.de}} - Homepage: \url{https://makeappdev.github.io/TUM-Projekte/}}
+% SI-Einheiten
+\DeclareSIUnit\voltampere{VA}
+\DeclareSIUnit\var{Var}
+\DeclareSIUnit\newtonmeter{Nm}
+\DeclareSIUnit\voltsecond{Vs}
+\DeclareSIUnit\amperesecond{As}
+
+% Nicht neuen, sondern alten Vector benutzen
+\let\newvec = \vec
+\let\vec = \oldvec
+
+% Weitere Definitionen
+\renewcommand{\ggT}[1]{\ensuremath{\operatorname{ggT}\left\{#1\right\}}}
+
+% Title
+\title{Real Time Programming Languages}
+\author{Markus Hofbauer und Kevin Meyer}
+\myemail{latex@kevin-meyer.de}
+\mywebsite{https://makeappdev.github.io/TUM-Projekte/}
 
 % Dokumentbeginn
 % ======================================================================
 \begin{document}
 
 \IfFileExists{git.id}{\input{git.id}}{}
-\ifdefined\GitRevision\fancyfoot[R]{Stand: \GitNiceDate \ (git \GitRevision) \qquad \thepage}\fi
+\ifdefined\GitRevision\mydate{\GitNiceDate\ (git \GitRevision)}\fi
 
-% Aufteilung in Spalten
-\begin{multicols*}{4}
-\fstitle{Real Time Programming Languages}
+\maketitle
 
 \section{General}
 \sectionbox{
@@ -493,5 +503,4 @@ task $:= (P,e,d)$ (with $P = $ Period, $e = $ WCET, $d = $ Deadline) schedulable
 \end{itemize}
 }
 
-\end{multicols*}
 \end{document}
