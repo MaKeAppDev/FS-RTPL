@@ -4,9 +4,9 @@ project(FS NONE)
 include(UseLATEX)
 
 add_custom_target(
-	writegitid ALL
-	COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/write-gitid.sh
-	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    writegitid ALL
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/write-gitid.sh
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 set(DRAWINGS
@@ -14,14 +14,10 @@ set(DRAWINGS
     drawings/cache.tex
 )
 
-set(IMAGES
-	img/Logo.pdf
-)
-
 add_latex_document(
-  formelsammlung.tex
-  FORCE_PDF
-	INPUTS ${DRAWINGS}
-	IMAGES ${IMAGES}
-	DEPENDS writegitid
+    formelsammlung.tex
+    FORCE_PDF
+    IMAGE_DIRS img
+    INPUTS ${DRAWINGS}
+    DEPENDS writegitid
 )
